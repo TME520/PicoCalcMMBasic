@@ -20,3 +20,35 @@ This software is provided "as is", without warranty of any kind. The author assu
 ## What you will find here
 
 Mostly BAS files that can be copied directly to your PicoCalc.
+
+## Cheat Sheet
+
+### BASIC
+
+```
+' Print text on the screen
+PRINT "FooBar"
+? "BarFoo"
+
+' Use the SD card as current drive
+DRIVE "B:"
+DRIVE"B:
+
+' List files in current folder
+FILES
+
+' Go to folder ASSETS
+CHDIR "ASSETS"
+CHDIR"ASSETS
+
+' Edit file GAME.BAS
+EDIT "GAME.BAS"
+EDIT"GAME.BAS
+```
+
+### The editor
+
+F1: Console
+F2: RUN
+F3: LIST
+F4: EDIT

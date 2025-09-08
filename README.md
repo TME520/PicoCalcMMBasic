@@ -12,3 +12,11 @@ The PicoCalc is a pocket-sized calculator-style computer powered by a Raspberry 
 MMBasic is a full featured implementation of the BASIC language with floating point, integer and string variables, arrays, long variable names, a built in program editor and many other features.
 
 [Official website](https://geoffg.net/picomite.html)
+
+## Disclaimer
+
+This software is provided "as is", without warranty of any kind. The author assumes no responsibility for any damages, data loss, financial loss, or catastrophic events (including but not limited to nuclear war) resulting from its use.
+
+## What you will find here
+
+Mostly BAS files that can be copied directly to your PicoCalc.

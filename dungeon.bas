@@ -1,19 +1,18 @@
 option base 0
 randomize timer
+framebuffer create
+framebuffer write f
 const mw=16,mh=8
 gold%=0
 dim m$(mh-1)
 data "################"
-data "#@.....#.......#"
-data "#.######..##...#"
-data "#...#....##....#"
-data "###.#.##..#.#X.#"
-data "#...#..#..#.####"
-data "#......#.......#"
+data "#@     #       #"
+data "# ######  ##   #"
+data "#   #    ##    #"
+data "### # ##  # #X #"
+data "#   #  #  # ####"
+data "#      #       #"
 data "################"
-
-?"Placing gold..."
-
 
 for i%=0 to mh-1:read m$(i%):next
 
@@ -22,8 +21,8 @@ for n%=1 to 4
     x%=int(rnd*mw)
     y%=int(rnd*mh)
     c$=mid$(m$(y%),x%+1,1)
-  loop until c$="."
-  m$(y%)=left$(m$(y%),x%)+"*"+      mid$(m$(y%),x%+2)
+  loop until c$=" "
+  m$(y%)=left$(m$(y%),x%)+"*"+                  mid$(m$(y%),x%+2)
 next
 
 for y%=0 to mh-1
@@ -31,13 +30,12 @@ for y%=0 to mh-1
   if p%>0 then
     px%=p%-1
     py%=y%
-    mid$(m$(y%),p%,1)="."
+    mid$(m$(y%),p%,1)=" "
     exit for
   endif
 next
 
 do
-  cls
   for y%=0 to mh-1
     if y%=py% then
       r$=m$(y%)
@@ -51,6 +49,8 @@ do
   ?"WASD - move"
   ?"Q - quit"
   ?"Gold: ";gold%
+  framebuffer copy f,n
+  cls
   k$=""
   do
     k$=ucase$(inkey$)
@@ -76,8 +76,10 @@ do
   if c$="X" then
     cls
     ?"You got out!"
+    framebuffer copy f,n
     exit
   elseif c$="*" then
     gold%=gold%+10
+    mid$(m$(ny%),nx%+1,1)="."
   endif
 loop

@@ -4,6 +4,8 @@ framebuffer create
 framebuffer write f
 const mw=16,mh=8
 gold%=0
+hp%=100
+xp%=0
 dim m$(mh-1)
 data "################"
 data "#@     #       #"
@@ -49,6 +51,8 @@ do
   ?"WASD - move"
   ?"Q - quit"
   ?"Gold: ";gold%
+  ?"HP: ";hp%
+  ?"XP: ";xp%
   framebuffer copy f,n
   cls
   k$=""
@@ -76,10 +80,24 @@ do
   if c$="X" then
     cls
     ?"You got out!"
+    ?"Gold: ";gold%
+    ?"HP: ";hp%
+    ?"XP: ";xp%
     framebuffer copy f,n
     exit
   elseif c$="*" then
     gold%=gold%+10
+    xp%=xp%+20
+    dmg%=5+int(rnd*6)
+    hp%=hp%-dmg%
     mid$(m$(ny%),nx%+1,1)="."
+    if hp%<=0 then
+      cls
+      ?"You succumbed to your wounds!"
+      ?"Gold: ";gold%
+      ?"XP: ";xp%
+      framebuffer copy f,n
+      exit
+    endif
   endif
 loop

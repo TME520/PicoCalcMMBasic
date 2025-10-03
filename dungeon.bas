@@ -10,56 +10,56 @@ dim base$(nd-1,mh-1)
 dim m$(mh-1)
 
 ' Dungeon layouts
-data  "##############################"
-data "#@                            #"
-data "#   #   #   #   #   #   #     #"
-data "#                             #"
-data "#  ### ########### ########   #"
-data "#   #   #   #   #   #   #     #"
-data "#   #   #   #   #   #   #     #"
-data "#  ### ########### ########   #"
-data "#                             #"
-data "#  #    #    #    #    #      #"
-data "#                             #"
-data "#  ### ##### ##### ##### ##   #"
-data "#                             #"
-data "#  #    #    #    #    #      #"
-data "#                            X#"
-data  "##############################"
+data  "###############################"
+data "#@                 #           #"
+data "###### ####### #####           #"
+data "#   #     #        #           #"
+data "#   ## ####### ############    #"
+data "#   #   #####             #    #"
+data "#   #   #####             #    #"
+data "## ### ################# ##    #"
+data "#                              #"
+data "#  #    #    #    #    #       #"
+data "#                           ####"
+data "#                            X##"
+data "#                           ####"
+data "#  #    #    #    #    #       #"
+data "#                              #"
+data  "###############################"
 
-data  "##############################"
-data "#@   ####      #              #"
-data "#    #  #      #   #######    #"
-data "#    #  ####   #        #     #"
-data "#    #      ####   ##   # ##  #"
-data "#    ######       ##   ##     #"
-data "#           #######           #"
-data "#   ######## #     #######    #"
-data "#   #      # # ###       #    #"
-data "#   #  ##  #   #   ###   #    #"
-data "#   #   #      #   #     ##   #"
-data "#   ### ###### #   #  ####    #"
-data "#            # #          ##  #"
-data "#   ######## # ##########     #"
-data "#             #            X  #"
-data  "##############################"
+data "###############################"
+data "#                             #"
+data "#### #                        #"
+data "##X  #################       ##"
+data "######              #         #"
+data "#      #  #  #  #   #         #"
+data "#                             #"
+data "#                             #"
+data "#      #  #  #  #   #         #"
+data "#                   #         #"
+data "#####################      ####"
+data "#                           @##"
+data "## ### ### ### ### ##      ####"
+data "#   #   #   #   #   #         #"
+data "#   #   #   #   #   #         #"
+data "###############################"
 
-data  "##############################"
-data "#@  #        ####      #      #"
-data "#   #  ####     #  ##  # ###  #"
-data "#   ####  #  #  #  ##    #    #"
-data "#        ##  #  #      # #    #"
-data "###### ####  ####  ####  #    #"
-data "#      #        #      # #    #"
-data "#  #######  ##  ###### # #    #"
-data "#      ##   ##         # #    #"
-data "#  ##   # ##### ###### #      #"
-data "#  ##   #     # #      # #    #"
-data "#       ##### # #  ####  #    #"
-data "# ###        #       #    #   #"
-data "# #   ######## ##### ######   #"
-data "# #                #      X   #"
-data  "##############################"
+data "###############################"
+data "#   #       #                 #"
+data "#   #       #             ## ##"
+data "# @ ####### #             #   #"
+data "#           #             #   #"
+data "##### ##### ##### #########   #"
+data "#   # #   # #   # #       #   #"
+data "#     #   # #             #   #"
+data "#   # #   # #   # #       #   #"
+data "##### ## ## ##### #########   #"
+data "#                 #   #   ## ##"
+data "#  #  #  #  #  #  # # # # #   #"
+data "#                   # # # #   #"
+data "#  #  #  #  #  #  # # # #     #"
+data "#                 # #   # #  @#"
+data "###############################"
 
 for d%=0 to nd-1
   for i%=0 to mh-1
@@ -83,7 +83,7 @@ for dungeon%=0 to nd-1
       y%=int(rnd*mh)
       c$=mid$(m$(y%),x%+1,1)
     loop until c$=" "
-    m$(y%)=left$(m$(y%),  x%)+"$"+mid$(m$(y%),x%+2)
+    m$(y%)=left$(m$(y%),    x%)+"$"+mid$(m$(y%),x%+2)
   next
 
   ' Enemies placement
@@ -93,7 +93,7 @@ for dungeon%=0 to nd-1
       y%=int(rnd*mh)
       c$=mid$(m$(y%),x%+1,1)
     loop until c$=" "
-    m$(y%)=left$(m$(y%),  x%)+"*"+mid$(m$(y%),x%+2)
+    m$(y%)=left$(m$(y%),    x%)+"*"+mid$(m$(y%),x%+2)
   next
 
   for y%=0 to mh-1
@@ -172,7 +172,7 @@ for dungeon%=0 to nd-1
       mid$(m$(ny%),nx%+1,1)="."
       if hp%<=0 then
         cls
-        ?"You succumbed to your        wounds!"
+        ?"You succumbed to your          wounds!"
         ?"Gold: ";gold%
         ?"XP: ";xp%
         framebuffer copy f,n
@@ -196,8 +196,8 @@ for dungeon%=0 to nd-1
       exit for
     else
       cls
-      ?"Dungeon ";dungeon%+1;"   cleared!"
-      ?"Prepare for dungeon   ";dungeon%+2
+      ?"Dungeon ";dungeon%+1;"     cleared!"
+      ?"Prepare for dungeon     ";dungeon%+2
       ?"[Enter] when ready"
       framebuffer copy f,n
       do
@@ -208,7 +208,7 @@ for dungeon%=0 to nd-1
   endif
 next
 
-if completed%=0 and quit%=0 and   dead%=0 then
+if completed%=0 and quit%=0 and     dead%=0 then
   cls
   ?"Your adventure ends early."
   framebuffer copy f,n

@@ -2,7 +2,7 @@ option base 0
 randomize timer
 framebuffer create
 framebuffer write f
-const mw=30,mh=30
+const mw=30,mh=16
 gold%=0
 hp%=100
 xp%=0
@@ -14,25 +14,11 @@ data "#                            #"
 data "#  ### ########### ########  #"
 data "#   #   #   #   #   #   #    #"
 data "#   #   #   #   #   #   #    #"
-data "#   #   #   #   #   #   #    #"
 data "#  ### ########### ########  #"
-data "#   #   #   #   #   #   #    #"
-data "#   #   #   #   #   #   #    #"
-data "#   #   #   #   #   #   #    #"
-data "#  ### ########### ########  #"
-data "#                            #"
-data "#                            #"
-data "#                            #"
-data "#  ### ##### ##### ##### ##  #"
 data "#                            #"
 data "#  #    #    #    #    #     #"
 data "#                            #"
 data "#  ### ##### ##### ##### ##  #"
-data "#  #    #    #    #    #     #"
-data "#                            #"
-data "#                            #"
-data "#  ### ##### ########### ##  #"
-data "#                            #"
 data "#                            #"
 data "#  #    #    #    #    #     #"
 data "#                           X#"

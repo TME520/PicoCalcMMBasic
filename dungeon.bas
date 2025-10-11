@@ -2,6 +2,7 @@ option base 0
 randomize timer
 framebuffer create
 framebuffer write f
+const title_image$="picodungeon_title_320px.png"
 const mw=30,mh=16,nd=8
 gold%=0
 hp%=100
@@ -150,6 +151,8 @@ data "#        #     #     # X#    #"
 data "# ################ ####### ###"
 data "#                           @#"
 data "##############################"
+
+gosub titlescreen
 
 for d%=0 to nd-1
   for i%=0 to mh-1
@@ -304,3 +307,15 @@ if completed%=0 and quit%=0 and            dead%=0 then
   ?"Your adventure ends early."
   framebuffer copy f,n
 endif
+
+end
+
+titlescreen:
+  cls
+  framebuffer load f,title_image$
+  framebuffer copy f,n
+  do
+    k$=inkey$
+  loop until k$<>""
+  cls
+return

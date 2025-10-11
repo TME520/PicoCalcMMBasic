@@ -2,7 +2,7 @@ option base 0
 randomize timer
 framebuffer create
 framebuffer write f
-const title_image$="picodungeon_title_320px.png"
+const title_image$="picodungeon_title_320px.bmp"
 const mw=30,mh=16,nd=8
 gold%=0
 hp%=100
@@ -312,7 +312,7 @@ end
 
 titlescreen:
   cls
-  framebuffer load f,title_image$
+  load image title_image$
   framebuffer copy f,n
   do
     k$=inkey$
